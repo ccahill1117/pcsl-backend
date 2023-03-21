@@ -5,6 +5,4 @@
 
 ## to add : 
 
-* user roles table
-  * admin
-  * player
+* dropdown options

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :seasons
   resources :user_registrations
   resources :users
   devise_for :users
