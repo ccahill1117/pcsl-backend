@@ -1,7 +1,7 @@
 class CreateSeasons < ActiveRecord::Migration[7.0]
   def up
     create_table :seasons do |t|
-      t.name
+      t.string :name
       # need dropdown option here for is it friendly type play season or competitive 
       t.timestamps
     end

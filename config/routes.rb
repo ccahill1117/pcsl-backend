@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dropdown_options
   resources :seasons
   resources :user_registrations
   resources :users

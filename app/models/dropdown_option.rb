@@ -1,0 +1,2 @@
+class DropdownOption < ApplicationRecord
+end
