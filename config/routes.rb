@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_registrations
   resources :users
   devise_for :users
   devise_for :admins

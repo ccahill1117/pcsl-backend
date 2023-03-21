@@ -1,0 +1,2 @@
+class UserRegistration < ApplicationRecord
+end
