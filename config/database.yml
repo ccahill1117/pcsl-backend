@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: pcsl_backend_production
-  username: pcsl_backend
-  password: <%= ENV["PCSL_BACKEND_DATABASE_PASSWORD"] %>
+  # database: pcsl_backend_production
+  # username: pcsl_backend
+  # password: <%= ENV["PCSL_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
