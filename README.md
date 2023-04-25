@@ -9,5 +9,17 @@ https://pcsl-backend.onrender.com
 ## to add : 
 
 * dropdown options
+* 
 
 
+## add user
+* post to /signup
+{
+  "user": {
+    "email": "chris@test.com",
+    "password": "password"
+  }
+}
+
+helpful: 
+https://dakotaleemartinez.com/tutorials/devise-jwt-api-only-mode-for-authentication/
