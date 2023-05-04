@@ -21,5 +21,12 @@ https://pcsl-backend.onrender.com
   }
 }
 
+* get to /login
+{
+  "user": {
+    "email": "chris@test.com",
+    "password": "password"
+  }
+}
 helpful: 
 https://dakotaleemartinez.com/tutorials/devise-jwt-api-only-mode-for-authentication/

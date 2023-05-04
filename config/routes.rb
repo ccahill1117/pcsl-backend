@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   resources :dropdown_options
   resources :seasons
   resources :user_registrations
-  resources :users
+  # resources :users
   # devise_for :users
   # devise_for :admins
-  devise_for :users, path: '', path_names: {
+  devise_for :users,
+  defaults: { format: :json },
+  path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',
-    registration: 'signup'
+    registration: 'signup',
+
   },
   controllers: {
     sessions: 'users/sessions',
