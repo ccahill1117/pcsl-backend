@@ -14,6 +14,7 @@ https://pcsl-backend.onrender.com
 
 ## add user
 * post to /signup
+- 422 if already exists
 {
   "user": {
     "email": "chris@test.com",
