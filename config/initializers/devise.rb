@@ -3,19 +3,19 @@
 # Turbo doesn't work with devise by default.
 # Keep tabs on https://github.com/heartcombo/devise/issues/5446 for a possible fix
 # Fix from https://gorails.com/episodes/devise-hotwire-turbo
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
+# class TurboFailureApp < Devise::FailureApp
+#   def respond
+#     if request_format == :turbo_stream
+#       redirect
+#     else
+#       super
+#     end
+#   end
 
-  def skip_format?
-    %w(html turbo_stream */*).include? request_format.to_s
-  end
-end
+#   def skip_format?
+#     %w(html turbo_stream */*).include? request_format.to_s
+#   end
+# end
 
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
@@ -23,11 +23,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'acfd42efba2795aed31fc10d590ad1372b6eacdf408b61b8471c4a3678c27d750c19aafe697eba2512dde4681bfd608f59b0c95d302d7785db772ea7853f422b'
+  config.secret_key = ENV['DEVISE_JWT_SECRET_KEY']
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = 'TurboDeviseController'
+  # config.parent_controller = 'TurboDeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -108,6 +108,11 @@ Devise.setup do |config|
   # passing skip: :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
+  # https://github.com/waiting-for-dev/devise-jwt/issues/235
+  # config.session_store :cookie_store, key: '_interslice_session'
+  #   config.middleware.use ActionDispatch::Cookies
+  #   config.middleware.use config.session_store, config.session_options
+
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
   # requests for sign in and sign up, you need to get a new CSRF token
@@ -173,7 +178,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.weeks
+  # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -289,24 +294,11 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
+  # config.warden do |manager|
+    # manager.failure_app = TurboFailureApp
     # manager.intercept_401 = false
     # manager.default_strategies(scope: :user).unshift :some_external_strategy
-  end
-
-
-  # jwt
-  config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
-    jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
-    ]
-    jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
-    ]
-    jwt.expiration_time = 30.minutes.to_i
-  end
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
@@ -329,9 +321,21 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
 
+  
   # ==> Configuration for :registerable
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    # jwt.algorithm = Rails.application.credentials.devise_jwt_algorithm!
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 30.minutes.to_i
+  end
 end

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# ./bin/render-build.sh for 
 # exit on error
 set -o errexit
 

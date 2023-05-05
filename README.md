@@ -13,7 +13,7 @@ https://pcsl-backend.onrender.com
 
 
 ## add user
-* post to /signup
+* POST to /signup
 - 422 if already exists
 {
   "user": {
@@ -22,12 +22,9 @@ https://pcsl-backend.onrender.com
   }
 }
 
-* get to /login
-{
-  "user": {
-    "email": "chris@test.com",
-    "password": "password"
-  }
-}
+* POST to /login
+
+* GET to /current_user
+  * with "Authorization" : "Bearer e....."
 helpful: 
 https://dakotaleemartinez.com/tutorials/devise-jwt-api-only-mode-for-authentication/
