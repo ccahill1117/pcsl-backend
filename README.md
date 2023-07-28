@@ -9,7 +9,10 @@ https://pcsl-backend.onrender.com
 ## to add : 
 
 * dropdown options
-* 
+* current szn
+* user reset password
+* polymorphic szn -> teams -> matches 
+* user_registrations -> players
 
 
 ## add user
