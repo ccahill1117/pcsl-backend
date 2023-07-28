@@ -1,0 +1,2 @@
+module Current
+end

@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.3)
       public_suffix (>= 2.0.2, < 6.0)
+    audited (5.3.3)
+      activerecord (>= 5.0, < 7.1)
+      request_store (~> 1.2)
     bcrypt (3.1.18)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
@@ -202,6 +205,8 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -227,6 +232,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  audited
   bootsnap
   debug
   devise
