@@ -1,8 +1,8 @@
 class UserRegistrationsController < ApplicationController
   before_action :set_user_registration, only: %i[ show update destroy ]
 
-  # GET /user_registrations
-  def index
+  # GET /user_registrations/{season}
+  def season
     @user_registrations = UserRegistration.all
 
     render json: @user_registrations
