@@ -8,11 +8,17 @@ https://pcsl-backend.onrender.com
 
 ## to add : 
 
+* config SSH
 * dropdown options
 * current szn
+  - validation api level
 * user reset password
+  - reset from CLI for now
 * polymorphic szn -> teams -> matches 
 * user_registrations -> players
+* spam prevention 
+  - use a session token to ask a math question?
+  - https://github.com/matthutchinson/acts_as_textcaptcha
 
 
 ## add user
