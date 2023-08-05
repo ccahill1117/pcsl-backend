@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # get with param for season_id
   get 'registrations', to: 'user_registrations#season'
 
+  post 'dropdown_options', to: 'dropdown_options#options'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

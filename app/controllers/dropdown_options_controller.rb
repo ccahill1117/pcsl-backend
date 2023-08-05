@@ -1,5 +1,6 @@
 class DropdownOptionsController < ApplicationController
   before_action :set_dropdown_option, only: %i[ show update destroy ]
+  # skip_before_action :authenticate_user!, only: [:show]
 
   # GET /dropdown_options
   def index
@@ -11,6 +12,12 @@ class DropdownOptionsController < ApplicationController
   # GET /dropdown_options/1
   def show
     render json: @dropdown_option
+  end
+
+
+  def options
+    dropdowns_from_code = DropdownOption.where(optional_value: params[:key])
+    render json: dropdowns_from_code
   end
 
   # POST /dropdown_options
