@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'dropdown_options', to: 'dropdown_options#options'
   get 'clubs', to: 'clubs#index'
 
+  post 'users/update_password', to: 'users#udpate_password'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

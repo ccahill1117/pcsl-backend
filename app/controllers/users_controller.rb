@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /users/update_password
+  def update_password
+
+    binding.pry
+  end
+
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
