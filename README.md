@@ -26,12 +26,14 @@ https://pcsl-backend.onrender.com
 - 422 if already exists
 {
   "user": {
-    "email": "chris@test.com",
-    "password": "password"
+    "email": "",
+    "password": ""
   }
 }
 
 * POST to /login
+* DELETE to /logout
+  * with auth in header
 
 * GET to /current_user
   * with "Authorization" : "Bearer e....."
