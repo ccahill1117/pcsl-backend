@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_000304) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_023530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,9 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_000304) do
     t.string "address_2"
     t.string "state"
     t.string "zip_code"
-    t.string "work_phone"
-    t.string "home_phone"
-    t.string "cell_phone"
     t.string "gender"
     t.date "date_of_birth"
     t.string "us_squash_id"
@@ -121,6 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_000304) do
     t.boolean "is_admin", default: false, null: false
     t.boolean "is_active", default: false, null: false
     t.bigint "clubs_id"
+    t.string "phone"
     t.index ["clubs_id"], name: "index_users_on_clubs_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true

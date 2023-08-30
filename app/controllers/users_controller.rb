@@ -15,7 +15,9 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    # binding.pry
     @user = User.new(user_params)
+
 
     if @user.save
       render json: @user, status: :created, location: @user
@@ -27,7 +29,7 @@ class UsersController < ApplicationController
   # POST /users/update_password
   def update_password
 
-    binding.pry
+    # binding.pry
   end
 
   # PATCH/PUT /users/1
