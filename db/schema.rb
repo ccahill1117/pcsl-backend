@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_195935) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_213514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_195935) do
     t.string "initials"
     t.boolean "has_paid", default: false, null: false
     t.boolean "is_captain", default: false, null: false
+    t.bigint "seasons_id"
+    t.index ["seasons_id"], name: "index_user_registrations_on_seasons_id"
+    t.index ["user_id", "seasons_id"], name: "index_user_registrations_on_user_id_and_seasons_id", unique: true
     t.index ["user_id"], name: "index_user_registrations_on_user_id"
   end
 
@@ -131,6 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_195935) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_registrations", "seasons", column: "seasons_id"
   add_foreign_key "user_registrations", "users"
   add_foreign_key "users", "clubs", column: "clubs_id"
 end

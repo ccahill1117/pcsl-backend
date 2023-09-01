@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    binding.pry
     @user = User.new(user_params)
 
 

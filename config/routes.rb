@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }
   # get with param for season_id
   get 'registrations', to: 'user_registrations#season'
+  post 'user_registrations', to: 'user_registrations#create'
 
   post 'dropdown_options', to: 'dropdown_options#options'
   get 'clubs', to: 'clubs#index'

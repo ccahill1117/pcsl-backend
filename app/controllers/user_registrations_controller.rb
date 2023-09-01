@@ -1,5 +1,7 @@
 class UserRegistrationsController < ApplicationController
   before_action :set_user_registration, only: %i[ show update destroy ]
+  before_action :authenticate_user!, only: %i[ create ]
+
 
   # GET /user_registrations/{season}
   def season
@@ -16,7 +18,6 @@ class UserRegistrationsController < ApplicationController
   # POST /user_registrations
   def create
     @user_registration = UserRegistration.new(user_registration_params)
-
     if @user_registration.save
       render json: @user_registration, status: :created, location: @user_registration
     else
@@ -46,6 +47,6 @@ class UserRegistrationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_registration_params
-      params.fetch(:user_registration, {})
+      params.fetch(:registration, {}).permit(:regular, :is_captain, :division, :rank, :initials, :user_id, :seasons_id)
     end
 end
