@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   # POST /users/update_password
   def update_password
 
-    # binding.pry
   end
 
   # PATCH/PUT /users/1
