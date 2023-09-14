@@ -60,3 +60,4 @@ gem "devise"
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
 gem 'devise-encryptable', require: true
+gem 'active_model_serializers', '~> 0.10.9'
