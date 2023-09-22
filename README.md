@@ -39,3 +39,7 @@ https://pcsl-backend.onrender.com
   * with "Authorization" : "Bearer e....."
 helpful: 
 https://dakotaleemartinez.com/tutorials/devise-jwt-api-only-mode-for-authentication/
+
+
+* serializers
+  * https://medium.com/@matt.readout/preparing-for-life-after-active-model-serializers-e40c9f0cd5f2

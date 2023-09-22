@@ -1,13 +1,11 @@
 module Web
-  class UserRegistrationSerializer
+  class UserRegistrationSerializer < ActiveModel::Serializer
     include JSONAPI::Serializer
-    attributes :id
-    # :first_name, :last_name
+    attribute :thing
   
-    # def first_name
-    #   # binding.pry
-    #   self.user.first_name
-    # end
+    def thing
+      object
+    end
 
     # def last_name
     #   self.user.last_name

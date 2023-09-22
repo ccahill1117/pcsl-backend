@@ -5,16 +5,11 @@ class UserRegistrationsController < ApplicationController
 
   # GET /user_registrations/{season}
   def season
-    @user_registrations = UserRegistration.where(seasons_id: 1).includes(:user)
-    # binding.pry
-    # render json: Web::UserRegistrationSerializer.new(@user_registrations)
-    # render json: @user_registrations, each_serializer: Web::UserRegistrationSerializer
-    render json: {
-      data: ActiveModelSerializers::SerializableResource.new(@user_registrations, each_serializer: Web::UserRegistrationSerializer),
-      message: ['ok we got the registrations'],
-      status: 200,
-      type: 'Success'
-    }
+    user_registrations = UserRegistration.where(seasons_id: 1)
+    render jsonapi: user_registrations, include: [:user, user_registrations: [:user]],
+          fields: { users: [:id, :first_name, :last_name, :email],
+                  user_registrations: [:id, :seasons_id, :division, :rank, :has_paid, :is_captain] }
+
   end
 
   # GET /user_registrations/1

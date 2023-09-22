@@ -14,7 +14,6 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
-require "active_model_serializers"
 
 # Require the gems listed in Gemfile, including any gems
 require 'devise'
