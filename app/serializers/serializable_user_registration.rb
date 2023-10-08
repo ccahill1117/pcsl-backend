@@ -1,7 +1,7 @@
 class SerializableUserRegistration < JSONAPI::Serializable::Resource
   type 'user_registrations'
 
-  attributes :id, :seasons_id, :is_captain, :division, :rank, :has_paid
+  attributes :id, :seasons_id, :is_captain, :division, :rank, :has_paid, :user_id
 
   # attribute :date do
   #   @object.created_at
