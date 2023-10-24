@@ -1,5 +1,5 @@
 module Web
-  class UserRegistrationSerializer < ActiveModel::Serializer
+  class UserRegistrationSerializer < ActiveModel::Serializer 
     include JSONAPI::Serializer
     attribute :thing
   
