@@ -5,7 +5,7 @@ class UserRegistrationsController < ApplicationController
 
   # GET /user_registrations/{season}
   def season
-    user_registrations = UserRegistration.where(seasons_id: 2).order(division: :desc, rank: :asc)
+    user_registrations = UserRegistration.where(seasons_id: 2).order(division: :asc, rank: :asc)
     render jsonapi: user_registrations, include: [:user, user_registrations: [:user]],
           fields: { users: [:id, :first_name, :last_name, :email],
                 user_registrations: [:id, :user_id, :seasons_id, :division, :rank, :has_paid, :is_captain, :regular, :user] }
